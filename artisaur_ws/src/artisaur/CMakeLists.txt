@@ -6,11 +6,10 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   geometry_msgs
-  urdf
 )
 
 catkin_package(
-  CATKIN_DEPENDS rospy std_msgs sensor_msgs geometry_msgs urdf
+  CATKIN_DEPENDS rospy std_msgs sensor_msgs geometry_msgs
 )
 
 include_directories(

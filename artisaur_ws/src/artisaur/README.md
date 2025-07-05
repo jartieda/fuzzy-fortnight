@@ -37,7 +37,6 @@ Ensure that the following ROS packages are installed:
 - `std_msgs`
 - `sensor_msgs`
 - `geometry_msgs`
-- `urdf`
 
 ## Contributing
 Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.

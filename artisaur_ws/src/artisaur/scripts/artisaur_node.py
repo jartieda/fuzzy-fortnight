@@ -2,7 +2,6 @@
 
 import rospy
 import math
-from urdf_parser_py.urdf import URDF
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import Twist
 from std_msgs.msg import String
@@ -64,12 +63,8 @@ class NanoSaur:
 
     def configure_robot(self, description):
         rospy.loginfo('Got description, configuring robot')
-        robot = URDF.from_xml_string(description)
-        joint_left = get_joint(robot, self.left_wheel_name)
-        joint_right = get_joint(robot, self.right_wheel_name)
-        self.wheel_separation = euclidean_of_vectors(joint_left.origin.xyz, joint_right.origin.xyz)
-        link_left = get_link(robot, joint_left.child)
-        self.radius = link_left.collision.geometry.radius
+        self.wheel_separation = 0.1
+        self.radius = 0.01
         rospy.loginfo(f"Wheel separation {self.wheel_separation} - Radius {self.radius}")
 
     def convert_speed(self, v, w):

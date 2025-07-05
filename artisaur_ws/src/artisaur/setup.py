@@ -6,7 +6,7 @@ setup(
     name=package_name,
     version='0.0.1',
     packages=[package_name],
-    install_requires=['rospy', 'sensor_msgs', 'geometry_msgs', 'std_msgs', 'urdf_parser_py'],
+    install_requires=['rospy', 'sensor_msgs', 'geometry_msgs', 'std_msgs'],
     zip_safe=True,
     maintainer='Raffaello Bonghi',
     maintainer_email='raffaello@rnext.it',
