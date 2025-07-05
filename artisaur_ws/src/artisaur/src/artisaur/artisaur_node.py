@@ -7,7 +7,7 @@ from geometry_msgs.msg import Twist
 from std_msgs.msg import String
 from motor import Motor
 from display import Display
-from eyes import Eyes
+#from eyes import Eyes
 
 
 def euclidean_of_vectors(xyz1, xyz2):
@@ -34,7 +34,7 @@ def get_link(robot, link_name):
 class NanoSaur:
     def __init__(self):
         rospy.init_node('nanosaur')
-        self.eyes = Eyes()
+        #self.eyes = Eyes()
         self.rate = rospy.get_param("~rate", 5)
         self.timer_period = 1.0 / self.rate
         self.rpm = rospy.get_param("~rpm", 150)
@@ -76,7 +76,7 @@ class NanoSaur:
         return [rr, rl]
 
     def drive_callback(self, msg):
-        self.eyes.ping()
+        #self.eyes.ping()
         v = msg.linear.x
         w = msg.angular.z
         rospy.logdebug(f"v={v} w={w}")
