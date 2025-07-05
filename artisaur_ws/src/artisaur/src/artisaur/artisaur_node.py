@@ -4,10 +4,13 @@ import rospy
 import math
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import Twist
+from std_msgs.msg import Float32MultiArray
 from std_msgs.msg import String
 from motor import Motor
 from display import Display
 #from eyes import Eyes
+
+WAYPOINT_TOPIC = "/terrabot/nomad/waypoint"
 
 
 def euclidean_of_vectors(xyz1, xyz2):
@@ -53,8 +56,8 @@ class NanoSaur:
         rospy.Subscriber('robot_description', String, self.configure_robot)
         self.joint_state = JointState()
         self.joint_pub = rospy.Publisher('joint_states', JointState, queue_size=10)
-        self.drive_sub = rospy.Subscriber('cmd_vel', Twist, self.drive_callback)
-
+        #self.drive_sub = rospy.Subscriber('cmd_vel', Twist, self.drive_callback)
+        self.drive_sub = rospy.Subscriber('WAYPOINT_TOPIC', Float32MultiArray, self.drive_callback)
         self.p = [0.0, 0.0]  # [right, left]
         self.r = [0.0, 0.0]  # [right, left]
         self.rate = rospy.Rate(self.rate)
@@ -77,8 +80,9 @@ class NanoSaur:
 
     def drive_callback(self, msg):
         #self.eyes.ping()
-        v = msg.linear.x
-        w = msg.angular.z
+
+        v = msg.data[1]
+        w = msg.data[0]
         rospy.logdebug(f"v={v} w={w}")
         r = self.convert_speed(v, w)
         rospy.logdebug(f"rad {r}")
