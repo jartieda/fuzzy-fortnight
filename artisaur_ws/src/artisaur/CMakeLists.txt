@@ -21,6 +21,6 @@ install(DIRECTORY launch/
 )
 
 install(PROGRAMS
-  scripts/artisaur_node
+  scripts/artisaur_node.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
