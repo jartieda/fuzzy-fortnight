@@ -1,5 +1,5 @@
 <launch>
-    <node name="nanosaur" pkg="artisaur" type="artisaur_node.py" output="screen">
+    <node name="artisaur_node" pkg="artisaur" type="artisaur_node.py" output="screen">
         <param name="rate" value="5" />
         <param name="rpm" value="150" />
         <param name="motor.left.channel" value="1" />
