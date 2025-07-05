@@ -1,0 +1,28 @@
+# Ignore ROS build artifacts
+devel/
+build/
+.vscode/
+# Ignore catkin workspace logs
+logs/
+
+# Ignore ROS install space
+install/
+
+# Ignore ROS package cache
+.cmake/
+.catkin_tools/
+
+# Ignore ROS test results
+test_results/
+
+# Ignore ROS launch files generated during runtime
+*.launch~
+
+# Ignore ROS bag files
+*.bag
+
+# Ignore ROS configuration files
+*.cfg~
+
+# Ignore ROS workspace settings
+.catkin_workspace

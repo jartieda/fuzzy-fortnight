@@ -1,0 +1,10 @@
+<launch>
+    <node name="nanosaur" pkg="artisaur" type="artisaur_node" output="screen">
+        <param name="rate" value="5" />
+        <param name="rpm" value="150" />
+        <param name="motor.left.channel" value="1" />
+        <param name="motor.left.wheel" value="sprocket_left_joint" />
+        <param name="motor.right.channel" value="4" />
+        <param name="motor.right.wheel" value="sprocket_right_joint" />
+    </node>
+</launch>
